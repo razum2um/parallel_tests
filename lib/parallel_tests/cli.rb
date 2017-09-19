@@ -127,6 +127,7 @@ module ParallelTests
 
     #exit with correct status code so rake parallel:test && echo 123 works
     def any_test_failed?(test_results)
+      puts "Test results exit codes", test_results.map { |result| result[:exit_status] } .inspect
       test_results.any? { |result| result[:exit_status] != 0 }
     end
 
